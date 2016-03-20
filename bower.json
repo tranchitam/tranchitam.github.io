@@ -1,0 +1,14 @@
+{
+  "name": "tranchitam.github.io",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.1",
+    "angular-ui-router": "~0.2.15",
+    "ngstorage": "~0.3.7",
+    "fontawesome": "~4.3.0",
+    "ng-sortable": "~1.2.2",
+    "angular-ui-sortable": "~0.13.4",
+    "Materialize": "materialize#^0.97.5"
+  }
+}

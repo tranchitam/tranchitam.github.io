@@ -1,0 +1,25 @@
+{
+  "name": "tranchitam.github.io",
+  "version": "1.0.0",
+  "description": "Tran Chi Tam's profile page",
+  "repository": "https://github.com/tranchitam.github.io.git",
+  "devDependencies": {
+    "http-server": "^0.6.1",
+    "grunt": "0.x.x",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-copy": "0.4.x",
+    "grunt-contrib-cssmin": "0.6.x",
+    "grunt-contrib-uglify": "0.2.x"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8080 -c-1"
+  },
+  "dependencies": {
+    "bower": "^1.7.7"
+  }
+}
