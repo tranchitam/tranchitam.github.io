@@ -100,4 +100,6 @@ nav {
     -moz-animation: slideDownAnimation 1s ease-out;
 }
 
-
+#sidenav-overlay{
+    z-index: 1;
+}

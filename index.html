@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="tranchitam.github.io" ng-cloak>
+<html ng-app="tranchitam.github.io" ng-cloak ng-controller="AppController">
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css"/>
@@ -34,11 +34,13 @@
                     </div>
                 </div>
             </li>
-            <li><a ui-sref="summary" class="waves-effect"><i class="mdi-action-dashboard"></i>Summary</a></li>
-            <li><a ui-sref="education" class="waves-effect"><i class="mdi-action-book"></i>Education</a></li>
-            <li><a ui-sref="skill" class="waves-effect"><i class="mdi-action-list"></i>Skill and Knowledge</a></li>
-            <li><a ui-sref="language" class="waves-effect"><i class="mdi-action-language"></i>Languages</a></li>
-            <li><a ui-sref="experience" class="waves-effect"><i class="mdi-action-account-balance"></i>Experience</a>
+            <li><a ui-sref="summary" ng-click="selectItem($event)" class="waves-effect"><i
+                    class="mdi-action-dashboard"></i>Summary</a>
+            </li>
+            <li><a ui-sref="education" ng-click="selectItem($event)" class="waves-effect"><i class="mdi-action-book"></i>Education</a></li>
+            <li><a ui-sref="skill" ng-click="selectItem($event)" class="waves-effect"><i class="mdi-action-list"></i>Skill and Knowledge</a></li>
+            <li><a ui-sref="language" ng-click="selectItem($event)" class="waves-effect"><i class="mdi-action-language"></i>Languages</a></li>
+            <li><a ui-sref="experience" ng-click="selectItem($event)" class="waves-effect"><i class="mdi-action-account-balance"></i>Experience</a>
             </li>
         </ul>
         <a href="#" class="brand-logo"><span>https://tranchitam.github.io</span></a>
@@ -51,16 +53,27 @@
 <div id="content" ui-view=""></div>
 </body>
 <script>
-    $(document).ready(function () {
-        $(".button-collapse").sideNav();
-        $(window).on('scroll', function (event) {
-            var scrollDelta = $(window).scrollTop();
-            if (scrollDelta > 64) {
-                $('nav').addClass('nav-fixed');
-            } else {
-                $('nav').removeClass('nav-fixed');
+    app.controller('AppController', ['$scope', function ($scope) {
+        $scope.init = function () {
+            $(".button-collapse").sideNav();
+            $(window).on('scroll', function (event) {
+                var scrollDelta = $(window).scrollTop();
+                if (scrollDelta > 64) {
+                    $('nav').addClass('nav-fixed');
+                } else {
+                    $('nav').removeClass('nav-fixed');
+                }
+            });
+        }
+
+        $scope.init();
+
+        $scope.selectItem = function (event) {
+            var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if (width <= 992) {
+                $('.button-collapse').sideNav('hide');
             }
-        });
-    });
+        }
+    }]);
 </script>
 </html>
